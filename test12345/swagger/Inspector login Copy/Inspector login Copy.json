@@ -1,0 +1,230 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Inspector login Copy",
+    "version" : "1.0"
+  },
+  "servers" : [ {
+    "url" : "https://gcp-api.apiwiz.io/itorix/v1/users",
+    "x-name" : "Server1"
+  } ],
+  "paths" : {
+    "/login" : {
+      "post" : {
+        "tags" : [ "API Inspector" ],
+        "summary" : "Inspector login Copy",
+        "operationId" : "Inspector login Copy",
+        "parameters" : [ {
+          "name" : "Content-Type",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "application/json"
+        }, {
+          "name" : "x-apikey",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "XeX0u28Ya1a3CBm5tihMQFteeA6fZTy8avUIsJ0WnNOaEAM90Hcv9G2xo5z5hI4WMyHffxTAbP2LcXK4u6n5Pw=="
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "required" : [ "loginId", "password", "workspaceId" ],
+                "type" : "object",
+                "properties" : {
+                  "loginId" : {
+                    "type" : "string"
+                  },
+                  "password" : {
+                    "type" : "string"
+                  },
+                  "workspaceId" : {
+                    "type" : "string"
+                  }
+                },
+                "additionalProperties" : {
+                  "type" : "object"
+                },
+                "description" : "Request Body",
+                "example" : "{\n    \"loginId\": \"akash.k\",\n    \"password\": \"vQNU/iZMyCO/E4hlGsk0TtS/nK30dr64sMLHmef24rVK6JBiCpo2ptaDiG8O/8ckQ7F63yayjDodanpT0MYL3A==\",\n    \"workspaceId\": \"acme-team-gcp-dev\"\n}"
+              }
+            }
+          },
+          "required" : false
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Response for endpoint POST-login",
+            "headers" : {
+              "date" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "server" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "expires" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "x-envoy-upstream-service-time" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "transfer-encoding" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "vary" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "x-frame-options" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "pragma" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "strict-transport-security" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "x-content-type-options" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "x-xss-protection" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "content-type" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "cache-control" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "required" : [ "email", "expired", "firstName", "host", "id", "ipAddress", "isTrial", "lastName", "loginId", "loginTimestamp", "paymentSchedule", "planId", "roles", "status", "tenant", "userAgent", "userId", "userStatus", "userType", "username", "workspaceId" ],
+                  "type" : "object",
+                  "properties" : {
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "userId" : {
+                      "type" : "string"
+                    },
+                    "username" : {
+                      "type" : "string"
+                    },
+                    "ipAddress" : {
+                      "type" : "string"
+                    },
+                    "host" : {
+                      "type" : "string"
+                    },
+                    "userAgent" : {
+                      "type" : "string"
+                    },
+                    "loginTimestamp" : {
+                      "type" : "integer"
+                    },
+                    "expired" : {
+                      "type" : "boolean"
+                    },
+                    "email" : {
+                      "type" : "string"
+                    },
+                    "roles" : {
+                      "type" : "array",
+                      "items" : {
+                        "type" : "string"
+                      }
+                    },
+                    "loginId" : {
+                      "type" : "string"
+                    },
+                    "lastName" : {
+                      "type" : "string"
+                    },
+                    "firstName" : {
+                      "type" : "string"
+                    },
+                    "userStatus" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string"
+                    },
+                    "userType" : {
+                      "type" : "string"
+                    },
+                    "tenant" : {
+                      "type" : "string"
+                    },
+                    "workspaceId" : {
+                      "type" : "string"
+                    },
+                    "isTrial" : {
+                      "type" : "boolean"
+                    },
+                    "planId" : {
+                      "type" : "string"
+                    },
+                    "paymentSchedule" : {
+                      "type" : "string"
+                    }
+                  },
+                  "example" : "{\"id\":\"639083aa24878b20036faac1\",\"userId\":\"624e824217931600da0ca848\",\"username\":\"Akash K\",\"ipAddress\":\"10.0.0.12\",\"host\":\"gcp-api.apiwiz.io\",\"userAgent\":\"Apache-HttpClient/4.5.13 (Java/11.0.16)\",\"loginTimestamp\":1670415274426,\"expired\":false,\"email\":\"akash.k@itorix.com\",\"roles\":[\"Admin\"],\"loginId\":\"akash.k\",\"lastName\":\"K\",\"firstName\":\"Akash\",\"userStatus\":\"active\",\"status\":\"active\",\"userType\":\"Member\",\"tenant\":\"acme-team-gcp-dev\",\"workspaceId\":\"acme-team-gcp-dev\",\"isTrial\":false,\"planId\":\"enterprise\",\"paymentSchedule\":\"monthly\"}"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name" : "Request Body"
+      }
+    }
+  },
+  "components" : { },
+  "x-original-swagger-version" : "2.0",
+  "tags" : [ ],
+  "security" : [ ],
+  "x-mock" : true
+}
