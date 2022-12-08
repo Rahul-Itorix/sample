@@ -1,0 +1,122 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "asset-events-getEventById-200",
+    "version" : "1.0"
+  },
+  "servers" : [ {
+    "url" : "https://mock.apiwiz.io/v1",
+    "x-name" : "Server1"
+  } ],
+  "paths" : {
+    "/events" : {
+      "get" : {
+        "tags" : [ "AssetEvents" ],
+        "summary" : "asset-events-getEventById-200",
+        "operationId" : "asset-events-getEventById-200",
+        "parameters" : [ {
+          "name" : "x-tenant",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "f8fda8f5-2f08-457b-95ea-0a232c51b850"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "12345"
+        }, {
+          "name" : "EventUUID",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "123456"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Response for endpoint GET-events",
+            "headers" : {
+              "date" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "content-length" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "server" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "x-envoy-upstream-service-time" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "vary" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "content-type" : {
+                "description" : "response header",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "required" : [ "AssetEventType", "EventUUID", "InputAssetsUUID", "OutputAssetUUID", "SiteUUID", "SupplyChhainHop" ],
+                  "type" : "object",
+                  "properties" : {
+                    "EventUUID" : {
+                      "type" : "string"
+                    },
+                    "SiteUUID" : {
+                      "type" : "string"
+                    },
+                    "AssetEventType" : {
+                      "type" : "string"
+                    },
+                    "SupplyChhainHop" : {
+                      "type" : "string"
+                    },
+                    "InputAssetsUUID" : {
+                      "type" : "array",
+                      "items" : {
+                        "type" : "string"
+                      }
+                    },
+                    "OutputAssetUUID" : {
+                      "type" : "string"
+                    }
+                  },
+                  "example" : "{\n    \"EventUUID\": \"de7acda2-6b5e-11ed-a1eb-0242ac120002\",\n    \"SiteUUID\": \"de7acda2-6b5e-11ed-a1eb-0242ac120034\",\n    \"AssetEventType\": \"Sheaing\",\n    \"SupplyChhainHop\": \"SCH-23JK\",\n    \"InputAssetsUUID\": [\n        \"de7acda2-6b5e-11ed-a1eb-0242ac120049\",\n        \"de7acda2-6b5e-11ed-a1eb-0242ac120052\"\n    ],\n    \"OutputAssetUUID\": \"de7acda2-6b5e-11ed-a1eb-0242ac120082\"\n}"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : { },
+  "x-original-swagger-version" : "2.0",
+  "tags" : [ ],
+  "security" : [ ],
+  "x-mock" : true
+}
