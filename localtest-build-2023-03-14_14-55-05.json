@@ -1,0 +1,263 @@
+{
+  "id" : "64103d5e28f97953c6cadb96",
+  "cts" : 1678785883975,
+  "apiId" : "64103d5e28f97953c6cadb95",
+  "revisionId" : "64103d5e28f97953c6cadb94",
+  "name" : "localtest",
+  "displayName" : "localtest",
+  "description" : "operation on a single pet123",
+  "apiRevision" : 1,
+  "apiVersion" : 1,
+  "protocols" : [ "https" ],
+  "serviceUrl" : "https://petstore.swagger.io",
+  "path" : "test1",
+  "authenticationSettings" : { },
+  "subscriptionKeyParameterNames" : {
+    "header" : "Ocp-Apim-Subscription-Key",
+    "query" : "subscription-key"
+  },
+  "subscriptionRequired" : false,
+  "contact" : {
+    "email" : "apiteam@swagger.io"
+  },
+  "license" : {
+    "name" : "Apache 2.0",
+    "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+  },
+  "termsOfServiceUrl" : "http://swagger.io/terms/",
+  "isCurrent" : true,
+  "isOnline" : true,
+  "apiOperations" : [ {
+    "name" : "deletetetete",
+    "displayName" : "deletePetbyid",
+    "method" : "Delete",
+    "urlTemplate" : "/pet/1234",
+    "templateParameters" : [ ],
+    "description" : "Deletes pet",
+    "responses" : [ {
+      "description" : "successful operation",
+      "headers" : [ ],
+      "representations" : [ {
+        "contentType" : "application/json",
+        "typeName" : "Video"
+      } ],
+      "statusCode" : 200
+    } ],
+    "policies" : [ {
+      "name" : "Validate parameters",
+      "description" : "The validate-parameters policy validates the header, query, or path parameters in requests against the API schema.",
+      "scope" : [ "GLOBAL", "PRODUCT", "API", "OPERATION" ],
+      "section" : [ "INBOUND" ],
+      "useDefault" : true,
+      "policyElements" : [ {
+        "name" : "validate-parameters",
+        "policyElementAttributes" : [ {
+          "name" : "specified-parameter-action",
+          "value" : "detect",
+          "valueType" : "String",
+          "required" : false
+        }, {
+          "name" : "unspecified-parameter-action",
+          "value" : "detect",
+          "valueType" : "String",
+          "required" : false
+        }, {
+          "name" : "errors-variable-name",
+          "value" : "requestParametersValidation",
+          "valueType" : "String",
+          "required" : false
+        } ],
+        "policyElements" : [ {
+          "name" : "headers",
+          "policyElementAttributes" : [ {
+            "name" : "specified-parameter-action",
+            "value" : "detect",
+            "valueType" : "String",
+            "required" : false
+          }, {
+            "name" : "unspecified-parameter-action",
+            "value" : "detect",
+            "valueType" : "String",
+            "required" : false
+          } ],
+          "policyElements" : [ {
+            "name" : "parameter",
+            "policyElementAttributes" : [ {
+              "name" : "name",
+              "value" : "Authorization",
+              "valueType" : "String",
+              "required" : false
+            }, {
+              "name" : "action",
+              "value" : "prevent",
+              "valueType" : "String",
+              "required" : false
+            } ],
+            "required" : false
+          }, {
+            "name" : "parameter",
+            "policyElementAttributes" : [ {
+              "name" : "name",
+              "value" : "User-Agent",
+              "valueType" : "String",
+              "required" : false
+            }, {
+              "name" : "action",
+              "value" : "ignore",
+              "valueType" : "String",
+              "required" : false
+            } ],
+            "required" : false
+          }, {
+            "name" : "parameter",
+            "policyElementAttributes" : [ {
+              "name" : "name",
+              "value" : "Host",
+              "valueType" : "String",
+              "required" : false
+            }, {
+              "name" : "action",
+              "value" : "ignore",
+              "valueType" : "String",
+              "required" : false
+            } ],
+            "required" : false
+          }, {
+            "name" : "parameter",
+            "policyElementAttributes" : [ {
+              "name" : "name",
+              "value" : "Referrer",
+              "valueType" : "String",
+              "required" : false
+            }, {
+              "name" : "action",
+              "value" : "ignore",
+              "valueType" : "String",
+              "required" : false
+            } ],
+            "required" : false
+          } ],
+          "required" : false
+        } ],
+        "required" : false
+      } ]
+    } ]
+  } ],
+  "policies" : [ {
+    "name" : "Validate parameters",
+    "description" : "The validate-parameters policy validates the header, query, or path parameters in requests against the API schema.",
+    "scope" : [ "GLOBAL", "PRODUCT", "API", "OPERATION" ],
+    "section" : [ "INBOUND" ],
+    "useDefault" : true,
+    "policyElements" : [ {
+      "name" : "validate-parameters",
+      "policyElementAttributes" : [ {
+        "name" : "specified-parameter-action",
+        "value" : "detect",
+        "valueType" : "String",
+        "required" : false
+      }, {
+        "name" : "unspecified-parameter-action",
+        "value" : "detect",
+        "valueType" : "String",
+        "required" : false
+      }, {
+        "name" : "errors-variable-name",
+        "value" : "requestParametersValidation",
+        "valueType" : "String",
+        "required" : false
+      } ],
+      "policyElements" : [ {
+        "name" : "headers",
+        "policyElementAttributes" : [ {
+          "name" : "specified-parameter-action",
+          "value" : "detect",
+          "valueType" : "String",
+          "required" : false
+        }, {
+          "name" : "unspecified-parameter-action",
+          "value" : "detect",
+          "valueType" : "String",
+          "required" : false
+        } ],
+        "policyElements" : [ {
+          "name" : "parameter",
+          "policyElementAttributes" : [ {
+            "name" : "name",
+            "value" : "Authorization",
+            "valueType" : "String",
+            "required" : false
+          }, {
+            "name" : "action",
+            "value" : "prevent",
+            "valueType" : "String",
+            "required" : false
+          } ],
+          "required" : false
+        }, {
+          "name" : "parameter",
+          "policyElementAttributes" : [ {
+            "name" : "name",
+            "value" : "User-Agent",
+            "valueType" : "String",
+            "required" : false
+          }, {
+            "name" : "action",
+            "value" : "ignore",
+            "valueType" : "String",
+            "required" : false
+          } ],
+          "required" : false
+        }, {
+          "name" : "parameter",
+          "policyElementAttributes" : [ {
+            "name" : "name",
+            "value" : "Host",
+            "valueType" : "String",
+            "required" : false
+          }, {
+            "name" : "action",
+            "value" : "ignore",
+            "valueType" : "String",
+            "required" : false
+          } ],
+          "required" : false
+        }, {
+          "name" : "parameter",
+          "policyElementAttributes" : [ {
+            "name" : "name",
+            "value" : "Referrer",
+            "valueType" : "String",
+            "required" : false
+          }, {
+            "name" : "action",
+            "value" : "ignore",
+            "valueType" : "String",
+            "required" : false
+          } ],
+          "required" : false
+        } ],
+        "required" : false
+      } ],
+      "required" : false
+    } ]
+  } ],
+  "buildProgress" : "SCHEDULED",
+  "connector" : {
+    "id" : "640fd877c74dfc0cb4b9e216",
+    "cts" : 1678760054139,
+    "mts" : 1678760054139,
+    "connectorName" : "test-10",
+    "host" : "apiwiz-management.management.azure-api.net",
+    "subscriptionId" : "8dc688ee-146f-4a3f-832b-5b0eca32f812",
+    "resourceGroup" : "apiwiz",
+    "serviceName" : "apiwiz-management",
+    "sharedAccessToken" : "SharedAccessSignature integration&202304071420&wsDsJMFoLQzj63jMsupVmC8aHZkBgS46ngjzJzv8e7cNR1tbY6/NiiCwr+yhXrapwb1cIvuC98EoAkUiBThTJg=="
+  },
+  "enableScmUpload" : true,
+  "scmUpload" : {
+    "branch" : "main",
+    "hostUrl" : "https://github.com/rahulitorix/sample.git",
+    "scmSource" : "Git"
+  }
+}
