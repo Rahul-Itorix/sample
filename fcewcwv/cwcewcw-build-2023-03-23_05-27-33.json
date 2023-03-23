@@ -1,0 +1,52 @@
+{
+  "id" : "641be338e7871635e22291e9",
+  "cts" : 1679549239291,
+  "apiId" : "641be338e7871635e22291e8",
+  "revisionId" : "641be338e7871635e22291e7",
+  "name" : "cwdvcrwv",
+  "displayName" : "cwcewcw",
+  "description" : "",
+  "apiRevision" : 1,
+  "apiVersion" : 1,
+  "protocols" : [ "http" ],
+  "serviceUrl" : "https://google.com",
+  "path" : "/cwcewc",
+  "subscriptionKeyParameterNames" : {
+    "header" : "Ocp-Apim-Subscription-Key",
+    "query" : "subscription-key"
+  },
+  "subscriptionRequired" : false,
+  "contact" : {
+    "email" : "apiteam@swagger.io"
+  },
+  "license" : {
+    "name" : "Apache 2.0",
+    "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+  },
+  "termsOfServiceUrl" : "http://swagger.io/terms/",
+  "tags" : [ ],
+  "isCurrent" : true,
+  "isOnline" : true,
+  "apiOperations" : [ ],
+  "policies" : [ ],
+  "buildProgress" : "SCHEDULED",
+  "connector" : {
+    "id" : "6410b6dd3d052c400e7cfbe4",
+    "cts" : 1678816988396,
+    "mts" : 1678816988396,
+    "connectorName" : "test-13",
+    "host" : "apiwiz-management.management.azure-api.net",
+    "subscriptionId" : "8dc688ee-146f-4a3f-832b-5b0eca32f812",
+    "resourceGroup" : "apiwiz",
+    "serviceName" : "apiwiz-management",
+    "sharedAccessToken" : "SharedAccessSignature integration&202304071420&wsDsJMFoLQzj63jMsupVmC8aHZkBgS46ngjzJzv8e7cNR1tbY6/NiiCwr+yhXrapwb1cIvuC98EoAkUiBThTJg=="
+  },
+  "enableScmUpload" : true,
+  "scmUpload" : {
+    "branch" : "main",
+    "hostUrl" : "https://github.com/rahulitorix/sample.git",
+    "folderName" : "fcewcwv",
+    "commitMessage" : "",
+    "scmSource" : "git"
+  }
+}
