@@ -1,0 +1,60 @@
+{
+  "id" : "641be1b6b40b4c17db5a6469",
+  "cts" : 1679548853920,
+  "apiId" : "641be1b6b40b4c17db5a6468",
+  "revisionId" : "641be1b6b40b4c17db5a6467",
+  "name" : "testinggg123456",
+  "displayName" : "testinggg 123456",
+  "description" : "testinggg 1",
+  "apiRevision" : 1,
+  "apiVersion" : 1,
+  "protocols" : [ "https" ],
+  "serviceUrl" : "https://google.com",
+  "path" : "/testing123456",
+  "subscriptionKeyParameterNames" : {
+    "header" : "Ocp-Apim-Subscription-Key",
+    "query" : "subscription-key"
+  },
+  "subscriptionRequired" : false,
+  "contact" : {
+    "email" : "apiteam@swagger.io"
+  },
+  "license" : {
+    "name" : "Apache 2.0",
+    "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+  },
+  "termsOfServiceUrl" : "http://swagger.io/terms/",
+  "tags" : [ ],
+  "isCurrent" : true,
+  "isOnline" : true,
+  "apiOperations" : [ {
+    "name" : "dummy-get",
+    "displayName" : "dummy get",
+    "method" : "get",
+    "urlTemplate" : "/dummyget",
+    "policies" : [ ],
+    "tags" : [ ]
+  } ],
+  "policies" : [ ],
+  "buildProgress" : "SCHEDULED",
+  "connector" : {
+    "id" : "641b01b8b40b4c17db5a6460",
+    "cts" : 1679491512575,
+    "createdUserName" : "Darshan Shivashankar",
+    "mts" : 1679491512575,
+    "connectorName" : "test-1",
+    "host" : "apiwiz-management.management.azure-api.net",
+    "subscriptionId" : "8dc688ee-146f-4a3f-832b-5b0eca32f812",
+    "resourceGroup" : "apiwiz",
+    "serviceName" : "apiwiz-management",
+    "sharedAccessToken" : "SharedAccessSignature integration&202304071420&wsDsJMFoLQzj63jMsupVmC8aHZkBgS46ngjzJzv8e7cNR1tbY6/NiiCwr+yhXrapwb1cIvuC98EoAkUiBThTJg=="
+  },
+  "enableScmUpload" : true,
+  "scmUpload" : {
+    "branch" : "main",
+    "hostUrl" : "https://github.com/rahulitorix/sample.git",
+    "folderName" : "testtt",
+    "commitMessage" : "",
+    "scmSource" : "git"
+  }
+}
