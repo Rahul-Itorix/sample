@@ -1,0 +1,77 @@
+{
+  "id" : "6442793f3da489086afa7b5d",
+  "cts" : 1682078015195,
+  "createdUserName" : "Chinmayee Jagadeesh",
+  "mts" : 1682078015195,
+  "apiId" : "644276a7113069129803daf7",
+  "revisionId" : "6442793f3da489086afa7b5e",
+  "name" : "isCurrenttest",
+  "displayName" : "isCurrenttest",
+  "description" : "isCurrenttest rev1",
+  "apiRevision" : 1,
+  "apiVersion" : 1,
+  "protocols" : [ "http" ],
+  "serviceUrl" : "https://www.google.com",
+  "path" : "/isCurrenttest",
+  "subscriptionKeyParameterNames" : {
+    "header" : "Ocp-Apim-Subscription-Key",
+    "query" : "subscription-key"
+  },
+  "subscriptionRequired" : false,
+  "contact" : {
+    "email" : "apiteam@swagger.io"
+  },
+  "license" : {
+    "name" : "Apache 2.0",
+    "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+  },
+  "termsOfServiceUrl" : "http://swagger.io/terms/",
+  "tags" : [ ],
+  "products" : [ ],
+  "isCurrent" : true,
+  "isOnline" : true,
+  "apiOperations" : [ ],
+  "policies" : [ {
+    "name" : "base",
+    "description" : "Inherit tag",
+    "scope" : [ "PRODUCT", "API", "OPERATION" ],
+    "supportedScope" : [ "PRODUCT", "API", "OPERATION" ],
+    "section" : [ "INBOUND", "OUTBOUND", "BACKEND", "ON_ERROR" ],
+    "supportedSection" : [ "INBOUND", "OUTBOUND", "BACKEND", "ON_ERROR" ],
+    "useDefault" : false,
+    "policyElements" : [ {
+      "name" : "base",
+      "description" : "Inheritance tag",
+      "multiple" : false,
+      "addablePolicies" : false,
+      "policyElementAttributes" : [ ],
+      "policyElements" : [ ],
+      "selectedPolicyElements" : [ ],
+      "requiredPolicyElements" : [ ],
+      "requiredPolicyElementAttributes" : [ ]
+    } ]
+  } ],
+  "connector" : {
+    "id" : "6442420bba3362629af6437c",
+    "cts" : 1682063883132,
+    "createdUserName" : "Darshan Shivashankar",
+    "mts" : 1682063883132,
+    "connectorName" : "secondary",
+    "managementHost" : "apiwiz-management-secondary.management.azure-api.net",
+    "gatewayHost" : "apiwiz-management-secondary.azure-api.net",
+    "subscriptionId" : "650b84c6-a5e5-4233-990d-83af7392a72f",
+    "resourceGroup" : "apiwiz",
+    "serviceName" : "apiwiz-management-secondary"
+  },
+  "enableScmUpload" : true,
+  "scmUpload" : {
+    "repoName" : "",
+    "branch" : "main",
+    "hostUrl" : "https://github.com/rahulitorix/sample.git",
+    "folderName" : "fkjewnfcn",
+    "commitMessage" : "ceqhjfcbeq",
+    "scmSource" : "git",
+    "password" : "",
+    "authType" : "token"
+  }
+}
