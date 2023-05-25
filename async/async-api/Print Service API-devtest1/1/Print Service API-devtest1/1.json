@@ -1,1 +1,499 @@
-"{\n    \"asyncapi\": \"2.0.0\",\n    \"id\": \"urn:com:example:print:api\",\n    \"info\": {\n        \"title\": \"Print Service API-devtest1\",\n        \"version\": \"1.0.0\",\n        \"description\": \"Allows you to interact with printers. Using it you can:\\n* Create a print job\\n* Receive events on the print job\",\n        \"termsOfService\": \"http://www.example.com/terms\",\n        \"contact\": {\n            \"name\": \"API Support\",\n            \"url\": \"https://www.example.com/support\",\n            \"email\": \"support@example.com\"\n        },\n        \"license\": {\n            \"name\": \"Apache 2.0\",\n            \"url\": \"https://www.apache.org/licenses/LICENSE-2.0\"\n        }\n    },\n    \"tags\": [\n        {\n            \"name\": \"asyncapi\",\n            \"description\": \"The industry standard for defining asynchronous APIs.\",\n            \"externalDocs\": {\n                \"description\": \"AsyncAPI specification 2.0.0\",\n                \"url\": \"https://www.asyncapi.com/docs/specifications/2.0.0\"\n            }\n        }\n    ],\n    \"servers\": {\n        \"Production\": {\n            \"url\": \"https://api.print.example.com\",\n            \"protocol\": \"amqp\",\n            \"protocolVersion\": \"0-9-1\",\n            \"description\": \"Production server.\",\n            \"security\": []\n        },\n        \"Staging\": {\n            \"url\": \"mqtt://staging.api.print.example.com:{port}\",\n            \"protocol\": \"mqtt\",\n            \"protocolVersion\": \"v3.1.1\",\n            \"description\": \"Staging server.\",\n            \"variables\": {\n                \"port\": {\n                    \"enum\": [\n                        \"1883\"\n                    ],\n                    \"default\": \"1883\",\n                    \"description\": \"Secure connection (TLS) is available through port 8883.\",\n                    \"examples\": [\n                        \"1883\"\n                    ]\n                }\n            },\n            \"security\": [\n                {\n                    \"API Key\": []\n                }\n            ],\n            \"bindings\": {\n                \"mqtt\": {\n                    \"clientId\": \"guest\",\n                    \"cleanSession\": false,\n                    \"lastWill\": {\n                        \"topic\": \"/last-wills\",\n                        \"qos\": 2,\n                        \"retain\": false\n                    },\n                    \"keepAlive\": 60,\n                    \"bindingVersion\": \"0.1.0\"\n                }\n            }\n        }\n    },\n    \"defaultContentType\": \"application/json\",\n    \"channels\": {\n        \"commands/pub1\": {\n            \"description\": \"The topic on which commands can be sent to a print queue.\",\n            \"publish\": {\n                \"operationId\": \"printQueueCommandssssss\",\n                \"summary\": \"Sends commands to a print queue.\",\n                \"description\": \"Available commands:\\n* Create a print job\\n* Cancel a print job\",\n                \"externalDocs\": {\n                    \"description\": \"Print Queue Commands Documentation.\",\n                    \"url\": \"https://www.example.com/docs/api/queues/commands\"\n                },\n                \"message\": {\n                    \"oneOf\": [\n                        {\n                            \"$ref\": \"#/components/messages/createPrintJob\"\n                        },\n                        {\n                            \"$ref\": \"#/components/messages/cancelPrintJob\"\n                        }\n                    ]\n                }\n            },\n            \"parameters\": {\n                \"queueId\": {\n                    \"description\": \"The identifier of the print queue.\",\n                    \"schema\": {\n                        \"type\": \"string\"\n                    }\n                }\n            }\n        },\n        \"commands/pub2\": {\n            \"description\": \"The topic on which commands can be sent to a print queue.\",\n            \"publish\": {\n                \"operationId\": \"printQueueCommands\",\n                \"summary\": \"Sends commands to a print queue.\",\n                \"description\": \"Available commands:\\n* Create a print job\\n* Cancel a print job\",\n                \"externalDocs\": {\n                    \"description\": \"Print Queue Commands Documentation.\",\n                    \"url\": \"https://www.example.com/docs/api/queues/commands\"\n                },\n                \"message\": {\n                    \"oneOf\": [\n                        {\n                            \"$ref\": \"#/components/messages/createPrintJob\"\n                        },\n                        {\n                            \"$ref\": \"#/components/messages/cancelPrintJob\"\n                        }\n                    ]\n                }\n            },\n            \"parameters\": {\n                \"queueId\": {\n                    \"description\": \"The identifier of the print queue.\",\n                    \"schema\": {\n                        \"type\": \"string\"\n                    }\n                }\n            }\n        },\n        \"commands/pub3\": {\n            \"description\": \"The topic on which commands can be sent to a print queue.\",\n            \"publish\": {\n                \"operationId\": \"printQueueCommandss\",\n                \"summary\": \"Sends commands to a print queue.\",\n                \"description\": \"Available commands:\\n* Create a print job\\n* Cancel a print job\",\n                \"externalDocs\": {\n                    \"description\": \"Print Queue Commands Documentation.\",\n                    \"url\": \"https://www.example.com/docs/api/queues/commands\"\n                },\n                \"tags\": [\n                    {\n                        \"name\": \"queue\",\n                        \"externalDocs\": {\n                            \"description\": \"Print queue.\",\n                            \"url\": \"https://www.example.com/docs/api/queues\"\n                        }\n                    }\n                ],\n                \"message\": {\n                    \"oneOf\": [\n                        {\n                            \"$ref\": \"#/components/messages/createPrintJob\"\n                        },\n                        {\n                            \"$ref\": \"#/components/messages/cancelPrintJob\"\n                        }\n                    ]\n                }\n            },\n            \"parameters\": {\n                \"queueId\": {\n                    \"description\": \"The identifier of the print queue.\",\n                    \"schema\": {\n                        \"type\": \"string\"\n                    }\n                }\n            }\n        },\n        \"events/subs1\": {\n            \"description\": \"The queue on which print job events can be consumed.\",\n            \"subscribe\": {\n                \"operationId\": \"printJobEvent\",\n                \"summary\": \"Consumes print job events.\",\n                \"description\": \"Available events:\\n* Print job created\\n* Print job started\\n* Print job finished\\n* Print job canceled\",\n                \"externalDocs\": {\n                    \"description\": \"Print Job Events Documentation.\",\n                    \"url\": \"https://www.example.com/docs/api/jobs/events\"\n                },\n                \"bindings\": {\n                    \"amqp\": {\n                        \"expiration\": 60,\n                        \"userId\": \"guest\",\n                        \"cc\": [\n                            \"user.log\",\n                            \"support.log\"\n                        ],\n                        \"priority\": 10,\n                        \"deliveryMode\": 2,\n                        \"mandatory\": false,\n                        \"bcc\": [\n                            \"external.audit\"\n                        ],\n                        \"replyTo\": \"user.reply\",\n                        \"timestamp\": true,\n                        \"ack\": true,\n                        \"bindingVersion\": \"0.1.0\"\n                    }\n                },\n                \"message\": {\n                    \"$ref\": \"#/components/messages/printJobEvent\"\n                }\n            },\n            \"parameters\": {\n                \"jobId\": {\n                    \"description\": \"The identifier of the print job.\",\n                    \"schema\": {\n                        \"type\": \"string\"\n                    }\n                }\n            },\n            \"bindings\": {\n                \"amqp\": {\n                    \"is\": \"queue\",\n                    \"queue\": {\n                        \"name\": \"events/jobs\",\n                        \"durable\": true,\n                        \"exclusive\": false,\n                        \"autoDelete\": false,\n                        \"vhost\": \"/\"\n                    },\n                    \"bindingVersion\": \"0.1.0\"\n                }\n            }\n        },\n        \"events/subs2\": {\n            \"description\": \"The queue on which print job events can be consumed.\",\n            \"subscribe\": {\n                \"operationId\": \"printJobEventt\",\n                \"summary\": \"Consumes print job events.\",\n                \"description\": \"Available events:\\n* Print job created\\n* Print job started\\n* Print job finished\\n* Print job canceled\",\n                \"tags\": [\n                    {\n                        \"name\": \"event\",\n                        \"externalDocs\": {\n                            \"description\": \"Print job event.\",\n                            \"url\": \"https://www.example.com/docs/api/jobs/events\"\n                        }\n                    },\n                    {\n                        \"name\": \"queue\",\n                        \"externalDocs\": {\n                            \"description\": \"Print queue.\",\n                            \"url\": \"https://www.example.com/docs/api/queues\"\n                        }\n                    }\n                ],\n                \"externalDocs\": {\n                    \"description\": \"Print Job Events Documentation.\",\n                    \"url\": \"https://www.example.com/docs/api/jobs/events\"\n                },\n                \"bindings\": {\n                    \"amqp\": {\n                        \"expiration\": 60,\n                        \"userId\": \"guest\",\n                        \"cc\": [\n                            \"user.log\",\n                            \"support.log\"\n                        ],\n                        \"priority\": 10,\n                        \"deliveryMode\": 2,\n                        \"mandatory\": false,\n                        \"bcc\": [\n                            \"external.audit\"\n                        ],\n                        \"replyTo\": \"user.reply\",\n                        \"timestamp\": true,\n                        \"ack\": true,\n                        \"bindingVersion\": \"0.1.0\"\n                    }\n                },\n                \"message\": {\n                    \"$ref\": \"#/components/messages/printJobEvent\"\n                }\n            },\n            \"parameters\": {\n                \"jobId\": {\n                    \"description\": \"The identifier of the print job.\",\n                    \"schema\": {\n                        \"type\": \"string\"\n                    }\n                }\n            },\n            \"bindings\": {\n                \"amqp\": {\n                    \"is\": \"queue\",\n                    \"queue\": {\n                        \"name\": \"events/jobs\",\n                        \"durable\": true,\n                        \"exclusive\": false,\n                        \"autoDelete\": false,\n                        \"vhost\": \"/\"\n                    },\n                    \"bindingVersion\": \"0.1.0\"\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"messages\": {\n            \"createPrintJob\": {\n                \"name\": \"createPrintJob\",\n                \"title\": \"Creates a print job.\",\n                \"summary\": \"Use this message to create a print job.\",\n                \"description\": \"The job Id can be used to get the status of the job or cancel it.\",\n                \"externalDocs\": {\n                    \"description\": \"Print Jobs Documentation.\",\n                    \"url\": \"https://www.example.com/docs/api/jobs\"\n                },\n                \"payload\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"jobId\": {\n                            \"type\": \"string\",\n                            \"title\": \"Job Id.\"\n                        },\n                        \"userId\": {\n                            \"type\": \"string\",\n                            \"title\": \"User Id.\"\n                        },\n                        \"documentName\": {\n                            \"type\": \"string\",\n                            \"title\": \"Document name.\",\n                            \"deprecated\": true\n                        },\n                        \"priority\": {\n                            \"type\": \"string\",\n                            \"title\": \"Priority.\",\n                            \"enum\": [\n                                \"low\",\n                                \"medium\",\n                                \"high\"\n                            ],\n                            \"externalDocs\": {\n                                \"description\": \"Print Job Priority Documentation.\",\n                                \"url\": \"https://www.example.com/docs/api/jobs/priority\"\n                            }\n                        }\n                    },\n                    \"examples\": [\n                        {\n                            \"jobId\": \"ABCD123\"\n                        },\n                        {\n                            \"userId\": \"testingUser\"\n                        },\n                        {\n                            \"documentName\": \"documentNameTest\"\n                        },\n                        {\n                            \"priority\": \"low\"\n                        }\n                    ]\n                },\n                \"headers\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"x-api-key\": {\n                            \"type\": \"string\",\n                            \"description\": \"API Key.\"\n                        },\n                        \"x-correlation-id\": {\n                            \"type\": \"string\",\n                            \"description\": \"Correlation ID.\"\n                        }\n                    },\n                    \"examples\": [\n                        {\n                            \"x-api-key\": \"abc1\"\n                        },\n                        {\n                            \"x-correlation-id\": \"testingString1\"\n                        }\n                    ]\n                },\n                \"correlationId\": {\n                    \"description\": \"Identifier used for message tracing and correlation.\",\n                    \"location\": \"$message.header#/x-correlation-id\"\n                }\n            },\n            \"cancelPrintJob\": {\n                \"name\": \"cancelPrintJob\",\n                \"title\": \"Cancels a print job.\",\n                \"payload\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"jobId\": {\n                            \"type\": \"string\",\n                            \"title\": \"Job Id.\"\n                        },\n                        \"force\": {\n                            \"type\": \"boolean\",\n                            \"title\": \"Force cancellation.\",\n                            \"default\": false\n                        }\n                    },\n                    \"examples\": [\n                        {\n                            \"jobId\": \"jobId\"\n                        },\n                        {\n                            \"force\": true\n                        }\n                    ]\n                },\n                \"headers\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"x-api-key\": {\n                            \"type\": \"string\",\n                            \"title\": \"API Key.\"\n                        },\n                        \"x-correlation-id\": {\n                            \"type\": \"string\",\n                            \"title\": \"Correlation ID.\"\n                        }\n                    },\n                    \"examples\": [\n                        {\n                            \"x-api-key\": \"abc2\"\n                        },\n                        {\n                            \"x-correlation-id\": \"testingString2\"\n                        }\n                    ]\n                },\n                \"correlationId\": {\n                    \"description\": \"Identifier used for message tracing and correlation.\",\n                    \"location\": \"$message.header#/x-correlation-id\"\n                },\n                \"tags\": [\n                    {\n                        \"name\": \"job\",\n                        \"externalDocs\": {\n                            \"description\": \"Print job.\",\n                            \"url\": \"https://www.example.com/docs/api/jobs\"\n                        }\n                    }\n                ],\n                \"bindings\": {\n                    \"amqp\": {\n                        \"contentEncoding\": \"gzip\",\n                        \"messageType\": \"job.create\",\n                        \"bindingVersion\": \"0.1.0\"\n                    }\n                }\n            },\n            \"printJobEvent\": {\n                \"name\": \"printJobEvent\",\n                \"title\": \"Print job event.\",\n                \"payload\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"jobId\": {\n                            \"type\": \"string\",\n                            \"title\": \"Job Id.\"\n                        },\n                        \"status\": {\n                            \"type\": \"string\",\n                            \"title\": \"Status.\",\n                            \"enum\": [\n                                \"created\",\n                                \"started\",\n                                \"finished\",\n                                \"canceled\"\n                            ]\n                        }\n                    }\n                }\n            }\n        },\n        \"securitySchemes\": {\n            \"API Key\": {\n                \"type\": \"apiKey\",\n                \"description\": \"Provide your API key as the user and leave the password empty.\",\n                \"in\": \"user\"\n            },\n            \"OAuth 2\": {\n                \"type\": \"oauth2\",\n                \"description\": \"OAuth 2.0.\",\n                \"flows\": {\n                    \"implicit\": {\n                        \"authorizationUrl\": \"https://auth.example.com/oauth\",\n                        \"refreshUrl\": \"https://auth.example.com/oauth/refresh\",\n                        \"scopes\": {\n                            \"read:job\": \"Read print jobs.\",\n                            \"write:job\": \"Write print jobs.\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}"
+{
+    "asyncapi": "2.0.0",
+    "id": "urn:com:example:print:api",
+    "info": {
+        "title": "Print Service API-devtest1",
+        "version": "1.0.0",
+        "description": "Allows you to interact with printers. Using it you can:\n* Create a print job\n* Receive events on the print job",
+        "termsOfService": "http://www.example.com/terms",
+        "contact": {
+            "name": "API Support",
+            "url": "https://www.example.com/support",
+            "email": "support@example.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0"
+        }
+    },
+    "tags": [
+        {
+            "name": "asyncapi",
+            "description": "The industry standard for defining asynchronous APIs.",
+            "externalDocs": {
+                "description": "AsyncAPI specification 2.0.0",
+                "url": "https://www.asyncapi.com/docs/specifications/2.0.0"
+            }
+        }
+    ],
+    "servers": {
+        "Production": {
+            "url": "https://api.print.example.com",
+            "protocol": "amqp",
+            "protocolVersion": "0-9-1",
+            "description": "Production server.",
+            "security": []
+        },
+        "Staging": {
+            "url": "mqtt://staging.api.print.example.com:{port}",
+            "protocol": "mqtt",
+            "protocolVersion": "v3.1.1",
+            "description": "Staging server.",
+            "variables": {
+                "port": {
+                    "enum": [
+                        "1883"
+                    ],
+                    "default": "1883",
+                    "description": "Secure connection (TLS) is available through port 8883.",
+                    "examples": [
+                        "1883"
+                    ]
+                }
+            },
+            "security": [
+                {
+                    "API Key": []
+                }
+            ],
+            "bindings": {
+                "mqtt": {
+                    "clientId": "guest",
+                    "cleanSession": false,
+                    "lastWill": {
+                        "topic": "/last-wills",
+                        "qos": 2,
+                        "retain": false
+                    },
+                    "keepAlive": 60,
+                    "bindingVersion": "0.1.0"
+                }
+            }
+        }
+    },
+    "defaultContentType": "application/json",
+    "channels": {
+        "commands/pub1": {
+            "description": "The topic on which commands can be sent to a print queue.",
+            "publish": {
+                "operationId": "printQueueCommandssssss",
+                "summary": "Sends commands to a print queue.",
+                "description": "Available commands:\n* Create a print job\n* Cancel a print job",
+                "externalDocs": {
+                    "description": "Print Queue Commands Documentation.",
+                    "url": "https://www.example.com/docs/api/queues/commands"
+                },
+                "message": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/components/messages/createPrintJob"
+                        },
+                        {
+                            "$ref": "#/components/messages/cancelPrintJob"
+                        }
+                    ]
+                }
+            },
+            "parameters": {
+                "queueId": {
+                    "description": "The identifier of the print queue.",
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "commands/pub2": {
+            "description": "The topic on which commands can be sent to a print queue.",
+            "publish": {
+                "operationId": "printQueueCommands",
+                "summary": "Sends commands to a print queue.",
+                "description": "Available commands:\n* Create a print job\n* Cancel a print job",
+                "externalDocs": {
+                    "description": "Print Queue Commands Documentation.",
+                    "url": "https://www.example.com/docs/api/queues/commands"
+                },
+                "message": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/components/messages/createPrintJob"
+                        },
+                        {
+                            "$ref": "#/components/messages/cancelPrintJob"
+                        }
+                    ]
+                }
+            },
+            "parameters": {
+                "queueId": {
+                    "description": "The identifier of the print queue.",
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "commands/pub3": {
+            "description": "The topic on which commands can be sent to a print queue.",
+            "publish": {
+                "operationId": "printQueueCommandss",
+                "summary": "Sends commands to a print queue.",
+                "description": "Available commands:\n* Create a print job\n* Cancel a print job",
+                "externalDocs": {
+                    "description": "Print Queue Commands Documentation.",
+                    "url": "https://www.example.com/docs/api/queues/commands"
+                },
+                "tags": [
+                    {
+                        "name": "queue",
+                        "externalDocs": {
+                            "description": "Print queue.",
+                            "url": "https://www.example.com/docs/api/queues"
+                        }
+                    }
+                ],
+                "message": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/components/messages/createPrintJob"
+                        },
+                        {
+                            "$ref": "#/components/messages/cancelPrintJob"
+                        }
+                    ]
+                }
+            },
+            "parameters": {
+                "queueId": {
+                    "description": "The identifier of the print queue.",
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "events/subs1": {
+            "description": "The queue on which print job events can be consumed.",
+            "subscribe": {
+                "operationId": "printJobEvent",
+                "summary": "Consumes print job events.",
+                "description": "Available events:\n* Print job created\n* Print job started\n* Print job finished\n* Print job canceled",
+                "externalDocs": {
+                    "description": "Print Job Events Documentation.",
+                    "url": "https://www.example.com/docs/api/jobs/events"
+                },
+                "bindings": {
+                    "amqp": {
+                        "expiration": 60,
+                        "userId": "guest",
+                        "cc": [
+                            "user.log",
+                            "support.log"
+                        ],
+                        "priority": 10,
+                        "deliveryMode": 2,
+                        "mandatory": false,
+                        "bcc": [
+                            "external.audit"
+                        ],
+                        "replyTo": "user.reply",
+                        "timestamp": true,
+                        "ack": true,
+                        "bindingVersion": "0.1.0"
+                    }
+                },
+                "message": {
+                    "$ref": "#/components/messages/printJobEvent"
+                }
+            },
+            "parameters": {
+                "jobId": {
+                    "description": "The identifier of the print job.",
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            },
+            "bindings": {
+                "amqp": {
+                    "is": "queue",
+                    "queue": {
+                        "name": "events/jobs",
+                        "durable": true,
+                        "exclusive": false,
+                        "autoDelete": false,
+                        "vhost": "/"
+                    },
+                    "bindingVersion": "0.1.0"
+                }
+            }
+        },
+        "events/subs2": {
+            "description": "The queue on which print job events can be consumed.",
+            "subscribe": {
+                "operationId": "printJobEventt",
+                "summary": "Consumes print job events.",
+                "description": "Available events:\n* Print job created\n* Print job started\n* Print job finished\n* Print job canceled",
+                "tags": [
+                    {
+                        "name": "event",
+                        "externalDocs": {
+                            "description": "Print job event.",
+                            "url": "https://www.example.com/docs/api/jobs/events"
+                        }
+                    },
+                    {
+                        "name": "queue",
+                        "externalDocs": {
+                            "description": "Print queue.",
+                            "url": "https://www.example.com/docs/api/queues"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Print Job Events Documentation.",
+                    "url": "https://www.example.com/docs/api/jobs/events"
+                },
+                "bindings": {
+                    "amqp": {
+                        "expiration": 60,
+                        "userId": "guest",
+                        "cc": [
+                            "user.log",
+                            "support.log"
+                        ],
+                        "priority": 10,
+                        "deliveryMode": 2,
+                        "mandatory": false,
+                        "bcc": [
+                            "external.audit"
+                        ],
+                        "replyTo": "user.reply",
+                        "timestamp": true,
+                        "ack": true,
+                        "bindingVersion": "0.1.0"
+                    }
+                },
+                "message": {
+                    "$ref": "#/components/messages/printJobEvent"
+                }
+            },
+            "parameters": {
+                "jobId": {
+                    "description": "The identifier of the print job.",
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            },
+            "bindings": {
+                "amqp": {
+                    "is": "queue",
+                    "queue": {
+                        "name": "events/jobs",
+                        "durable": true,
+                        "exclusive": false,
+                        "autoDelete": false,
+                        "vhost": "/"
+                    },
+                    "bindingVersion": "0.1.0"
+                }
+            }
+        }
+    },
+    "components": {
+        "messages": {
+            "createPrintJob": {
+                "name": "createPrintJob",
+                "title": "Creates a print job.",
+                "summary": "Use this message to create a print job.",
+                "description": "The job Id can be used to get the status of the job or cancel it.",
+                "externalDocs": {
+                    "description": "Print Jobs Documentation.",
+                    "url": "https://www.example.com/docs/api/jobs"
+                },
+                "payload": {
+                    "type": "object",
+                    "properties": {
+                        "jobId": {
+                            "type": "string",
+                            "title": "Job Id."
+                        },
+                        "userId": {
+                            "type": "string",
+                            "title": "User Id."
+                        },
+                        "documentName": {
+                            "type": "string",
+                            "title": "Document name.",
+                            "deprecated": true
+                        },
+                        "priority": {
+                            "type": "string",
+                            "title": "Priority.",
+                            "enum": [
+                                "low",
+                                "medium",
+                                "high"
+                            ],
+                            "externalDocs": {
+                                "description": "Print Job Priority Documentation.",
+                                "url": "https://www.example.com/docs/api/jobs/priority"
+                            }
+                        }
+                    },
+                    "examples": [
+                        {
+                            "jobId": "ABCD123"
+                        },
+                        {
+                            "userId": "testingUser"
+                        },
+                        {
+                            "documentName": "documentNameTest"
+                        },
+                        {
+                            "priority": "low"
+                        }
+                    ]
+                },
+                "headers": {
+                    "type": "object",
+                    "properties": {
+                        "x-api-key": {
+                            "type": "string",
+                            "description": "API Key."
+                        },
+                        "x-correlation-id": {
+                            "type": "string",
+                            "description": "Correlation ID."
+                        }
+                    },
+                    "examples": [
+                        {
+                            "x-api-key": "abc1"
+                        },
+                        {
+                            "x-correlation-id": "testingString1"
+                        }
+                    ]
+                },
+                "correlationId": {
+                    "description": "Identifier used for message tracing and correlation.",
+                    "location": "$message.header#/x-correlation-id"
+                }
+            },
+            "cancelPrintJob": {
+                "name": "cancelPrintJob",
+                "title": "Cancels a print job.",
+                "payload": {
+                    "type": "object",
+                    "properties": {
+                        "jobId": {
+                            "type": "string",
+                            "title": "Job Id."
+                        },
+                        "force": {
+                            "type": "boolean",
+                            "title": "Force cancellation.",
+                            "default": false
+                        }
+                    },
+                    "examples": [
+                        {
+                            "jobId": "jobId"
+                        },
+                        {
+                            "force": true
+                        }
+                    ]
+                },
+                "headers": {
+                    "type": "object",
+                    "properties": {
+                        "x-api-key": {
+                            "type": "string",
+                            "title": "API Key."
+                        },
+                        "x-correlation-id": {
+                            "type": "string",
+                            "title": "Correlation ID."
+                        }
+                    },
+                    "examples": [
+                        {
+                            "x-api-key": "abc2"
+                        },
+                        {
+                            "x-correlation-id": "testingString2"
+                        }
+                    ]
+                },
+                "correlationId": {
+                    "description": "Identifier used for message tracing and correlation.",
+                    "location": "$message.header#/x-correlation-id"
+                },
+                "tags": [
+                    {
+                        "name": "job",
+                        "externalDocs": {
+                            "description": "Print job.",
+                            "url": "https://www.example.com/docs/api/jobs"
+                        }
+                    }
+                ],
+                "bindings": {
+                    "amqp": {
+                        "contentEncoding": "gzip",
+                        "messageType": "job.create",
+                        "bindingVersion": "0.1.0"
+                    }
+                }
+            },
+            "printJobEvent": {
+                "name": "printJobEvent",
+                "title": "Print job event.",
+                "payload": {
+                    "type": "object",
+                    "properties": {
+                        "jobId": {
+                            "type": "string",
+                            "title": "Job Id."
+                        },
+                        "status": {
+                            "type": "string",
+                            "title": "Status.",
+                            "enum": [
+                                "created",
+                                "started",
+                                "finished",
+                                "canceled"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "API Key": {
+                "type": "apiKey",
+                "description": "Provide your API key as the user and leave the password empty.",
+                "in": "user"
+            },
+            "OAuth 2": {
+                "type": "oauth2",
+                "description": "OAuth 2.0.",
+                "flows": {
+                    "implicit": {
+                        "authorizationUrl": "https://auth.example.com/oauth",
+                        "refreshUrl": "https://auth.example.com/oauth/refresh",
+                        "scopes": {
+                            "read:job": "Read print jobs.",
+                            "write:job": "Write print jobs."
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
