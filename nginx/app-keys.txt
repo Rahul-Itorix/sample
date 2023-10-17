@@ -1,7 +1,3 @@
-9mDcfe2n0NKxRcOFyJBFUORa:appleidcheck
-FgUSr8PmlJnDbcwI97+Hz8lr:appleidcheck
-EMNxDLLIbLE4ihgwzoMgqmPK:samsung
-FgUSr8PmlJnDbcwI97+Hz8lr:appleidcheck
-OkYcn3Cr7vBWgx9jbq9kq+gk:nokia
+z27btGDg2AEPIdKqKxazp1Uz:nokia
 EMNxDLLIbLE4ihgwzoMgqmPK:samsung
 FgUSr8PmlJnDbcwI97+Hz8lr:appleidcheck
