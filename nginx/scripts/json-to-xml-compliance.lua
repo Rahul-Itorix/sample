@@ -74,6 +74,7 @@ if res then
         local json_obj = json.decode(res.body)
         local xml_str = convert_table_to_xml(json_obj)
         ngx.header.content_type = 'application/xml';
+        res.headers["content-type"] = 'application/xml';
         ngx.print(xml_str);
         res.body = xml_str
     else 
